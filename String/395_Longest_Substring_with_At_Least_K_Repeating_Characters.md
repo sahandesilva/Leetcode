@@ -21,9 +21,9 @@ s = "ababbc", k = 2
 
 Output:
 5
-```
-The longest substring is "ababb", as 'a' is repeated 2 times and 'b' is repeated 3 times.
 
+The longest substring is "ababb", as 'a' is repeated 2 times and 'b' is repeated 3 times.
+```
 
 ### Solution:
 
