@@ -22,7 +22,7 @@ Given target = 5, return true.
 
 Given target = 20, return false.
 
-**Solution:**
+### Solution:
 
 Time Complexity is O(nlogn) and Space Complexity is O(1)
 
