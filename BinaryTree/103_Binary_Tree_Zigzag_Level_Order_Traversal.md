@@ -1,6 +1,6 @@
-103. Binary Tree Zigzag Level Order Traversal
+## 103. Binary Tree Zigzag Level Order Traversal
 
-Problem:
+### Problem:
 Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).
 
 For example:
@@ -21,7 +21,7 @@ return its zigzag level order traversal as:
 ]
 ```
 
-Solution:
+### Solution:
 
 Time Complexity : O(n) as we should visit each node of the binary tree
 
