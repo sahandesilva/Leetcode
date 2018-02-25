@@ -111,3 +111,36 @@ class Solution(object):
         
         return len(s) if status else 0
 ```
+
+Solution 3:
+
+```
+class Solution(object):
+    def longestSubstring(self, s, k):
+        """
+        :type s: str
+        :type k: int
+        :rtype: int
+        """
+        return self.helper(s,k,0,len(s))
+      
+    def helper(self,s, k,start,end):
+        
+        if end - start < k:
+            return 0
+        
+        alp = [0 for i in range(26)]
+        
+        for i in range(start,end):
+            alp[ord(s[i])-ord('a')] += 1
+        
+        for i in range(26): 
+            if alp[i] < k and alp[i] > 0:              
+                for j in range(start,end):                   
+                    if chr(i + ord('a')) == s[j]:
+                        left = self.helper(s, k,start,j)
+                        right = self.helper(s, k,j+1,end)    
+                        return max(left,right)
+                    
+        return end - start
+```
