@@ -14,6 +14,7 @@ There is only one duplicate number in the array, but it could be repeated more t
 ### Soluion:
 
 Time Complexity: O(nlogn)
+
 Memeory Complexity: O(1)
 
 </br>
