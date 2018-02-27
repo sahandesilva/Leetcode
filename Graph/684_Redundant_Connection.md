@@ -38,9 +38,8 @@ Every integer represented in the 2D-array will be between 1 and N, where N is th
 Update (2017-09-26):
 We have overhauled the problem description + test cases and specified clearly the graph is an undirected graph. For the directed graph follow up please see Redundant Connection II). We apologize for any inconvenience caused.
 
-### Solution:
-
-Using **Union Find** without union by rank,
+### Solution 1:
+**Using Union Find without union by rank**
 
 Time Complexit : O(N)
 
@@ -76,6 +75,72 @@ class Solution(object):
                 parent[u] = parent[v]      
                 merge(t,parent[u])
 ```                
+### Soluton 2:
+**Using UnionFind with union-by-rank**
 
+```
+class Solution(object):
+    def findRedundantConnection(self, edges):
+        """
+        :type edges: List[List[int]]
+        :rtype: List[int]
+        """ 
+        uf = UnionFind(edges)
+        
+        for edge in edges:
+            if not uf.union(*edge):
+                return edge
+        
+class UnionFind(object):
+    def __init__(self,edges):
+        self.parent = [i for i in range(len(edges)+1)]
+        self.rank = [0]*(len(edges)+1)
+            
+    def find(self,node):
+        
+        if self.parent[node] != node:    
+            self.parent[node] = self.find(self.parent[node])        
+        return self.parent[node]
 
+    def union(self,u,v):
+        
+        pu,pv = self.find(u),self.find(v)
+        
+        if pu == pv:
+            return False
+        elif self.rank[pu] > self.rank[pv]:
+            self.parent[pv] = pu
+        elif self.rank[pv] > self.rank[pu]:
+            self.parent[pu] = pv
+        else:
+            self.parent[pv] = pu
+            self.rank[pu] += 1
+            
+        return True
+ ```          
+      
+    
+    
+        
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            
+            
+        
+        
+        
+        
+            
+        
+        
 
