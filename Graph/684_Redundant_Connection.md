@@ -38,7 +38,8 @@ We have overhauled the problem description + test cases and specified clearly th
 
 ### Solution:
 
-**Union Find**
+Using **Union Find** without union by rank,
+
 Time Complexit : O(N)
 
 Memory Complexity : O(N)
